@@ -28,8 +28,6 @@ public class Principal {
 
             parser.programa();
 
-            // Fechamento do arquivo de saída
-            writer.write("teste");
             writer.close();
         }catch (IOException ex) {
         }
