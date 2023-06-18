@@ -1,1 +1,3 @@
-teste
+Linha 93: erro sintatico proximo a {i])
+
+Fim da compilação

@@ -38,7 +38,14 @@ public class MyCustomErrorListener implements ANTLRErrorListener {
     public void	syntaxError(Recognizer<?,?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
         try {
             Token t = (Token) offendingSymbol;
-            file.write("Linha " + t.getLine() + ": erro sintatico proximo a " + t.getText() + "\n Fim da compilação");
+            switch (t.getText()){
+                case "<EOF>":
+                    file.write("Linha " + t.getLine() + ": erro sintatico proximo a EOF");
+                    break;
+                default:
+                    file.write("Linha " + t.getLine() + ": erro sintatico proximo a " + t.getText());
+            }
+            file.write("\nFim da compilação");
         }catch (IOException ex) {
         }
     }

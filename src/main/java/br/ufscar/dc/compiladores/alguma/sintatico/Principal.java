@@ -23,8 +23,8 @@ public class Principal {
             FileWriter writer = new FileWriter(filename);
             
             MyCustomErrorListener mcel = new MyCustomErrorListener(writer);
-            parser.addErrorListener(mcel);
             parser.removeErrorListeners();
+            parser.addErrorListener(mcel);
 
             parser.programa();
 
