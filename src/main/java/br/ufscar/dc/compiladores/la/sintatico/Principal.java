@@ -22,6 +22,7 @@ public class Principal {
             String filename = args[1];
             FileWriter writer = new FileWriter(filename);
             
+            //Configuração do erro customizado
             MyCustomErrorListener mcel = new MyCustomErrorListener(writer);
             parser.removeErrorListeners();
             parser.addErrorListener(mcel);

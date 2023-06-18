@@ -43,14 +43,34 @@ public class MyCustomErrorListener implements ANTLRErrorListener {
 
         try {
             Token t = (Token) offendingSymbol;
-            switch (t.getText()){
-                case "<EOF>":
-                    file.write("Linha " + t.getLine() + ": erro sintatico proximo a EOF");
+            String displayName = LALexer.VOCABULARY.getDisplayName(t.getType());
+            switch (displayName){
+
+                //condicional para detectar erros léxicos de caracteres inválidos na linguagem
+                case "ERRO":
+                    file.write("Linha " + t.getLine() + ": " + t.getText() + " - simbolo nao identificado\n");
                     break;
+                
+                //condicional para detectar erros léxicos de comentários não fechados
+                case "COMENTARIO_NAO_FECHADO":
+                    file.write("Linha " + t.getLine() + ": comentario nao fechado\n");
+                    break;
+                
+                //condicional para detectar erros léxicos de cadeias não fechadas
+                case "CADEIA_NAO_FECHADA":
+                    file.write("Linha " + t.getLine() + ": cadeia literal nao fechada\n");
+                    break;
+
+                //condicional para detectar erros sintáticos, no caso usado para tirar as "<>" do EOF
+                case "EOF":
+                    file.write("Linha " + t.getLine() + ": erro sintatico proximo a EOF\n");
+                    break;
+                
+                //condicional para detectar qualquer outro erro sintático
                 default:
-                    file.write("Linha " + t.getLine() + ": erro sintatico proximo a " + t.getText());
+                    file.write("Linha " + t.getLine() + ": erro sintatico proximo a " + t.getText() + "\n");
             }
-            file.write("\nFim da compilacao\n");
+            file.write("Fim da compilacao\n");
             this.jaErrou = true;
         }catch (IOException ex) {
         }

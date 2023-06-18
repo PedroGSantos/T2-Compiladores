@@ -67,7 +67,7 @@ COMENTARIO_NAO_FECHADO: '{' ~('\n'|'}')* '\n';
 CADEIA_NAO_FECHADA: '"' ~('\n'|'"')* '\n';
 
 // Simbolos não reconhecidos na linguagem
-ERRO: '~' | '$' | '}';
+ERRO: '~' | '$' | '}' | '|' | '!' | '@' ;
 
 programa: declaracoes 'algoritmo' corpo 'fim_algoritmo' EOF;
 declaracoes: (declaracao_local | declaracao_global)*;
