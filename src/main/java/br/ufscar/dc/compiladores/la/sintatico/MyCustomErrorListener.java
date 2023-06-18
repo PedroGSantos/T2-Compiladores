@@ -45,7 +45,7 @@ public class MyCustomErrorListener implements ANTLRErrorListener {
                 default:
                     file.write("Linha " + t.getLine() + ": erro sintatico proximo a " + t.getText());
             }
-            file.write("\nFim da compilacao\n");
+            file.write("\nFim da compilação\n");
         }catch (IOException ex) {
         }
     }
