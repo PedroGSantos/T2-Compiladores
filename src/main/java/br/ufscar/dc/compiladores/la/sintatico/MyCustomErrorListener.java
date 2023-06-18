@@ -15,7 +15,9 @@ import org.antlr.v4.runtime.dfa.DFA;
 public class MyCustomErrorListener implements ANTLRErrorListener {
 
     private FileWriter file;
+    private boolean jaErrou;
     public MyCustomErrorListener(FileWriter file){
+        this.jaErrou = false;
         this.file = file;
     }
 
@@ -36,6 +38,9 @@ public class MyCustomErrorListener implements ANTLRErrorListener {
 
     @Override
     public void	syntaxError(Recognizer<?,?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
+        if (this.jaErrou)
+            return;
+
         try {
             Token t = (Token) offendingSymbol;
             switch (t.getText()){
@@ -46,6 +51,7 @@ public class MyCustomErrorListener implements ANTLRErrorListener {
                     file.write("Linha " + t.getLine() + ": erro sintatico proximo a " + t.getText());
             }
             file.write("\nFim da compilacao\n");
+            this.jaErrou = true;
         }catch (IOException ex) {
         }
     }
