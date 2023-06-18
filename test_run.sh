@@ -3,7 +3,7 @@
 
 
 for i in {1..62}; do
-    java -jar target/lalex-1.0-SNAPSHOT-jar-with-dependencies.jar test-cases/entrada/${i}.ct test-cases/saida/${i}.out
+    java -jar target/la-sintatico-1.0-SNAPSHOT-jar-with-dependencies.jar test-cases/entrada/${i}.ct test-cases/saida/${i}.out
     diff test-cases/saida/${i}.ct test-cases/saida/${i}.out > test-cases/saida/${i}.diff
     if [ $? -eq 0 ]
     then

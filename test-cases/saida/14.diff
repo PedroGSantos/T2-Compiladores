@@ -1,0 +1,5 @@
+1c1,2
+< Linha 14: comentario nao fechado
+---
+> Linha 14: erro sintatico proximo a { resultados 
+> 

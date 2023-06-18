@@ -1,0 +1,5 @@
+1c1,2
+< Linha 16: cadeia literal nao fechada
+---
+> Linha 16: erro sintatico proximo a " km/l)
+> 
