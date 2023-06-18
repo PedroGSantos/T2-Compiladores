@@ -1,4 +1,4 @@
-grammar Alguma;
+grammar LA;
 // Fragmentos utilizados para ajudar nas regras léxicas
 fragment
 LETRA: ('a'..'z') | ('A'..'Z');
