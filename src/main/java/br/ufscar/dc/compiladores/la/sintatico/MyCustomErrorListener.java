@@ -38,6 +38,7 @@ public class MyCustomErrorListener implements ANTLRErrorListener {
 
     @Override
     public void	syntaxError(Recognizer<?,?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
+        //condicional para não imprimir mais de um erro sintático
         if (this.jaErrou)
             return;
 
