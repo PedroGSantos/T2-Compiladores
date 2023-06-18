@@ -1,4 +1,4 @@
-package br.ufscar.dc.compiladores.alguma.sintatico;
+package br.ufscar.dc.compiladores.la.sintatico;
 
 import java.io.IOException;
 import org.antlr.v4.runtime.CharStream;
@@ -15,9 +15,9 @@ public class Principal {
 
         try {
             CharStream cs = CharStreams.fromFileName(args[0]);
-            AlgumaLexer lexer = new AlgumaLexer(cs);
+            LALexer lexer = new LALexer(cs);
             CommonTokenStream tokens = new CommonTokenStream(lexer);
-            AlgumaParser parser = new AlgumaParser(tokens);
+            LAParser parser = new LAParser(tokens);
 
             String filename = args[1];
             FileWriter writer = new FileWriter(filename);

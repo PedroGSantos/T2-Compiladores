@@ -1,4 +1,4 @@
-package br.ufscar.dc.compiladores.alguma.sintatico;
+package br.ufscar.dc.compiladores.la.sintatico;
 
 import org.antlr.v4.runtime.ANTLRErrorListener;
 import org.antlr.v4.runtime.Token;
@@ -45,7 +45,7 @@ public class MyCustomErrorListener implements ANTLRErrorListener {
                 default:
                     file.write("Linha " + t.getLine() + ": erro sintatico proximo a " + t.getText());
             }
-            file.write("\nFim da compilação");
+            file.write("\nFim da compilação\n");
         }catch (IOException ex) {
         }
     }
